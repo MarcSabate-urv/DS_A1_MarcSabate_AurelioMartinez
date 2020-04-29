@@ -5,9 +5,9 @@ from pywren_ibm_cloud.utils import sizeof_fmt
 
 class COSBackend:
     def __init__(self):
-        service_endpoint = 'https://s3.eu-de.cloud-object-storage.appdomain.cloud'
-        secret_key = '3e7fda18aae326717c6dec59f390ef4dc761541b5c892944'
-        access_key = '137fdae71eb14e5294cec509fadb8118'
+        service_endpoint = '___'
+        secret_key = '____'
+        access_key = '_____'
         client_config = ibm_botocore.client.Config(max_pool_connections=200, user_agent_extra='pywren-ibm-cloud')
 
         self.cos_client = ibm_boto3.client('s3', aws_access_key_id=access_key, aws_secret_access_key=secret_key,
