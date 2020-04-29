@@ -34,11 +34,11 @@ def incializar(n, m, l, rang, work):
     array2 = np.array_split(np.transpose(matrizB), num2)
     for i in range(num):
         name = "fil" + str(i)
-        cos.put_object('depositoaurelio', name,
+        cos.put_object('____', name,
                        pickle.dumps(array[i], pickle.HIGHEST_PROTOCOL))
     for j in range(num2):
         name = "col" + str(j)
-        cos.put_object('depositoaurelio', name,
+        cos.put_object('____', name,
                        pickle.dumps(np.transpose(array2[j]), pickle.HIGHEST_PROTOCOL))
 
     if ( work == (l*n) ):
@@ -65,9 +65,9 @@ def mult(array):
     for i in range(len(array)):
         if (i % 2) != 0:
             continue
-        matrix1 = cos.get_object('depositoaurelio', array[i])
+        matrix1 = cos.get_object('____', array[i])
         matrix1 = pickle.loads(matrix1)
-        matrix2 = cos.get_object('depositoaurelio', array[i + 1])
+        matrix2 = cos.get_object('_____', array[i + 1])
         matrix2 = pickle.loads(matrix2)
         result = np.append(result, np.dot(matrix1, matrix2))
     return result
@@ -83,7 +83,7 @@ def ensamblar(results):
         final = np.reshape(array, (n, l))
     else:
         final = np.reshape(results, (n, l))
-    cos.put_object('depositoaurelio', 'matrizFinal',
+    cos.put_object('____', 'matrizFinal',
                    pickle.dumps(final, pickle.HIGHEST_PROTOCOL))
     return final
 
